@@ -1,6 +1,8 @@
 spring:
   application:
     name: spring-security
+  main:
+    allow-circular-references: true
   datasource:
     url: ${DATABASE_URL}
     username: ${DATABASE_USERNAME}
