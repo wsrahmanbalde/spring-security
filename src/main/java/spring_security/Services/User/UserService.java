@@ -1,7 +1,7 @@
 package spring_security.Services.User;
 
-import spring_security.Models.Users.AppRole;
-import spring_security.Models.Users.AppUser;
+import spring_security.Models.User.AppRole;
+import spring_security.Models.User.AppUser;
 
 public interface UserService {
     AppUser saveUser(AppUser user);
