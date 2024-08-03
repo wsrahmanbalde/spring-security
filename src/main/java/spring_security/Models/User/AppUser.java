@@ -1,13 +1,14 @@
-package spring_security.Models.Users;
+package spring_security.Models.User;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -16,6 +17,7 @@ public class AppUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long user_id;
     private String username;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY) //Eviter d'exposer le mot de passe dans json
     private String password;
     private Boolean enabled;
 
