@@ -1,4 +1,4 @@
-package spring_security.Models.User;
+package spring_security.Models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,15 +7,14 @@ import jakarta.persistence.Id;
 import lombok.*;
 
 @Entity
+@Builder
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class AppRole {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long role_id;
-    private String roleName;
-
+    private String rolename;
 }

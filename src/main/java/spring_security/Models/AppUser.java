@@ -1,9 +1,11 @@
-package spring_security.Models.User;
+package spring_security.Models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -17,13 +19,11 @@ public class AppUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long user_id;
     private String username;
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY) //Eviter d'exposer le mot de passe dans json
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
-    private Boolean enabled;
 
-    @ManyToMany(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
-    @JoinTable(name = "user_role",
-            joinColumns = @JoinColumn(name = "user_id") ,
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @ManyToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name="user_role",joinColumns = @JoinColumn(name="user_id") ,
+            inverseJoinColumns = @JoinColumn(name="role_id"))
     private List<AppRole> appRoles;
 }
